@@ -5,7 +5,9 @@
 #include <iostream>
 #include "defines.h"
 
-
+#ifdef DEBUG
+#define UTILS_DEBUG
+#endif // DEBUG
 
 struct db_info{
     long creation_time;

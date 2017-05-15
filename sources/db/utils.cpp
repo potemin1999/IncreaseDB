@@ -13,19 +13,25 @@ long UTILS::get_size(File* f){
 /**returns user head address*/
 long UTILS::get_head_by_id(File* _H,Id* _id){
     long count = (get_size(_H)-HEAD_SIZE)/USER_HEAD_SIZE;
+    #ifdef UTILS_DEBUG
     cout << "      utils c[" << count << "] id[" << *_id << "] " << endl;
+    #endif // UTILS_DEBUG
     long _head_s;
     Id* id = new Id;
     for (long i = 0; i<count; i++){
         fseek(_H,HEAD_SIZE+i*USER_HEAD_SIZE,0);
         fread(id,4,1,_H);
+        #ifdef UTILS_DEBUG
         cout << "      compare ("<<*id<<"=="<<*_id<<")="<<(*id==*_id)<<endl;
+        #endif // UTILS_DEBUG
         if (*id==*_id){
             _head_s = HEAD_SIZE+i*USER_HEAD_SIZE;
             char* name = new char[USER_HEAD_SIZE-12];
             //fseek(_H,4,1);
             fread(name,1,USER_HEAD_SIZE-12,_H);
+            #ifdef UTILS_DEBUG
             printf(name);
+            #endif // UTILS_DEBUG
             return _head_s;
         }
     }

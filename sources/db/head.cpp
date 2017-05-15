@@ -37,7 +37,9 @@ int HeadManager::init(File* head){
     }else{
         fseek(_H,0,SEEK_SET);
         fread(&(_LastId),sizeof _LastId,1,_H);
+        #ifdef HEAD_DEBUG
         cout << "read last id : " << _LastId << std::endl;
+        #endif // HEAD_DEBUG
     }
     fseek(_H,sizeof(Id),SEEK_SET);
     fread(&_CreationTime,TIME_SIZE,1,_H);
@@ -92,7 +94,9 @@ int HeadManager::get_entries(Id* array){
         long id = 0;
         fseek(_H,HEAD_SIZE+i*USER_HEAD_SIZE,0);
         fread(&id,sizeof(id),1,_H);
+        #ifdef OUTPUT
         cout << "id[" << i << "]: " << id << std::endl;
+        #endif // OUTPUT
     }
     return 0;
 }

@@ -68,7 +68,9 @@ int IncreaseDB::init(char* options){
     _hm->init(_H);
     _dm->init(_D);
     _dm->bind_head_manager(_hm);
+    #ifdef DB_DEBUG
     cout << "db '" << name << "' initialized with code (" << size << ")\n";
+    #endif // DEBUG
     //if (size==0) cout << "     first launch\n";
     return 0;
 }

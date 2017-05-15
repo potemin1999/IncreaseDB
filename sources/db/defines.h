@@ -5,7 +5,8 @@
 #define HEAD_SIZE 512
 #define USER_HEAD_SIZE 256
 #define END -8
-#define DEBUG 1
+//#define DEBUG
+#define OUTPUT
 
 /** ERRORS */
 

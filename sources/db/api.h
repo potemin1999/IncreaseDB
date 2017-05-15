@@ -21,7 +21,8 @@ int dbDestoyDB();
 int dbCreateEntry(entry* new_entry_p);
 int dbOpenEntry(entry* entry_p);
 int dbCloseEntry();
-
+int dbEnterInteractive();
+//interactive.cpp
 
 int dbInitDB(char* name,char* options){
     db = new DB::IncreaseDB(name);
@@ -41,7 +42,7 @@ int dbCreateEntry(entry* new_entry_p){
 }
 
 int dbOpenEntry(entry* entry_p){
-    return 0;// db->open_entry(entry_p);
+    return db->open_entry((Id*)&entry_p->id,0);
 }
 
 
@@ -74,6 +75,9 @@ typedef int (db_open_entry)(entry* entry);
 typedef int (db_close_entry)();
 #define db_close_entry dbCloseEntry
 
+/**db enter interactive mode*/
+typedef int (db_enter_interactive)();
+#define db_enter_interactive dbEnterInteractive
 
 
 
