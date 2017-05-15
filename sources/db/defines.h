@@ -66,6 +66,26 @@
  * 2. open time == close time == 0   :  time unknown
  * 3. next address == 0              :  there is no next block
  */
+/* data entry structure
+ * [type(1)            - [0]
+ * [name size(2)]      - [1]
+ * [name(name size)]   - [3]
+ * [operation type(1)  - [3+name size]
+ * [data size(4)]      - [4+name size]
+ * [data(data size)]   - [8+name size]
+ * [ \0 (1)]           - [8+name size+data size]
+ */
+/* data entry types
+ * 32 = long integer
+ * 33 = long unsigned integer
+ * 34 = short integer
+ * 35 = short unsigned integer
+ * 48 = char[]
+ * 49 = unsigned char[]
+ * 64 = long long
+ * 72 = float
+ * 78 = double
+ */
 
  #include <cstdio>
  #include <io.h>
