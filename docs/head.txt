@@ -1,0 +1,14 @@
+/** HEAD FILE CONSTRUCTION */
+/* head - first HEAD_SIZE bytes
+ * [last used id(4)]
+ */
+/* entry segment - ENTRY_HEAD_SIZE bytes
+ * [id(4)]
+ * [information(244)]
+ * [first address(4)]   // points at first address of first data segment
+ * [last address(4)]    // points at first address of last data segment
+ */
+/* head segment errors
+ * 1. first address == last address == -1    :  data segment wasn't found, to create
+ * 2. last address == 0 & != first address  :  data segment wasn't closed
+ */

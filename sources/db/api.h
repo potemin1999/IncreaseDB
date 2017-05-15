@@ -41,7 +41,7 @@ int dbCreateEntry(entry* new_entry_p){
 }
 
 int dbOpenEntry(entry* entry_p){
-    return db->open_entry(entry_p);
+    return 0;// db->open_entry(entry_p);
 }
 
 

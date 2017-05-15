@@ -5,10 +5,10 @@
 using namespace std;
 
 int main(int argi,char** argc){
-    IncreaseDB* db = new IncreaseDB((char*)"people");
+    IncreaseDB* db = new IncreaseDB((char*)"testdb");
     db->init(0);
     cout << " create entry : " << db->create_entry() << endl;
-    Id i = 2;
+    Id i = 0;
     cout << " open entry : " << db->open_entry(&i,0) << endl;
     cout << " put head  : " << db->put_head("hello test user",15) << endl;
     char* data = new char[8];
