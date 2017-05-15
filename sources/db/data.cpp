@@ -124,8 +124,19 @@ long DataManager::close_data_segment(){
     return ftell(_D);
 }
 
-int DataManager::put_data(char type,char* name,long int nsize,void* data, long int dsize){
-
+int DataManager::put_data(char type,char* name,short int nsize,void* data, long int dsize){
+    if (!_hm->get_current_entry()) return ERROR_ENTRY_NEGATIVE_ID;
+    if (!_DataOpened) create_data_segment();
+    if (_DataS==-1) return ERROR_DATA_INVALID_START_BLOCK_POINTER;
+    char* op = new char;
+    op *= '=';
+    fseek(_D,_DataS+20,SEEK_SET);
+    fwrite(type,1,1,_D);
+    fwrite(nsize,sizeof(short int),1,_D);
+    fwrite(name,1,nsize,_D);
+    fwrite(op,1,1,_D);
+    fwrite(dsize,sizeof(long int),1,_D);
+    fwrite(data,1,dsize,_D);
 }
 
 int DataManager::put_data(long size,char* data){

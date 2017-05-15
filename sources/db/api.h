@@ -21,6 +21,8 @@ int dbDestoyDB();
 int dbCreateEntry(entry* new_entry_p);
 int dbOpenEntry(entry* entry_p);
 int dbCloseEntry();
+//api.cpp
+
 int dbEnterInteractive();
 //interactive.cpp
 

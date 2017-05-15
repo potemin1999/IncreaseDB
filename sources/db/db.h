@@ -64,12 +64,12 @@ namespace DB{
             return  put_head(head,strlen(head));
         }
 
-        int put_data(char type,char* name,long int nsize,void* data, long int dsize){
-            return 444;
+        int put_data(char type,char* name,short int nsize,void* data, long int dsize){
+            return _dm->put_data(type,name,nsize,data,dsize);
         }
         int put_data(long size,char* bytes){
-            _dm ->put_data(size,bytes);
-            return 333;
+            return _dm ->put_data(size,bytes);
+
         }
     };
 }

@@ -41,7 +41,7 @@ namespace DB{
         Address create_data_segment();
         /** returns first empty byte address of segment */
         Address close_data_segment();
-        int put_data(char type,char* name,long int nsize,void* data, long int dsize);
+        int put_data(char type,char* name,short int nsize,void* data, long int dsize);
         int put_data(long size,char* bytes);
     };
 }
