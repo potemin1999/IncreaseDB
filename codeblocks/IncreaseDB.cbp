@@ -47,6 +47,9 @@
 		<Linker>
 			<Add directory="../sources" />
 		</Linker>
+		<Unit filename="../sources/db/api.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="../sources/db/api.h" />
 		<Unit filename="../sources/db/data.cpp" />
 		<Unit filename="../sources/db/data.h" />
@@ -55,6 +58,7 @@
 		<Unit filename="../sources/db/defines.h" />
 		<Unit filename="../sources/db/head.cpp" />
 		<Unit filename="../sources/db/head.h" />
+		<Unit filename="../sources/db/interactive.cpp" />
 		<Unit filename="../sources/db/utils.cpp" />
 		<Unit filename="../sources/db/utils.h" />
 		<Unit filename="../sources/main.cpp" />
